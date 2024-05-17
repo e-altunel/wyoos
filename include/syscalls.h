@@ -1,6 +1,6 @@
- 
-#ifndef __MYOS__SYSCALLS_H
-#define __MYOS__SYSCALLS_H
+
+#ifndef INCLUDE_SYSCALLS
+#define INCLUDE_SYSCALLS
 
 #include <common/types.h>
 #include <hardwarecommunication/interrupts.h>
@@ -8,20 +8,18 @@
 
 namespace myos
 {
-    
-    class SyscallHandler : public hardwarecommunication::InterruptHandler
-    {
-        
-    public:
-        SyscallHandler(hardwarecommunication::InterruptManager* interruptManager, myos::common::uint8_t InterruptNumber);
-        ~SyscallHandler();
-        
-        virtual myos::common::uint32_t HandleInterrupt(myos::common::uint32_t esp);
 
-    };
-    
-    
+class SyscallHandler : public hardwarecommunication::InterruptHandler
+{
+
+public:
+  SyscallHandler (hardwarecommunication::InterruptManager *interruptManager,
+                  myos::common::uint8_t InterruptNumber);
+  ~SyscallHandler ();
+
+  virtual myos::common::uint32_t HandleInterrupt (myos::common::uint32_t esp);
+};
+
 }
 
-
-#endif
+#endif /* INCLUDE_SYSCALLS */

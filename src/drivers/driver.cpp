@@ -1,45 +1,39 @@
 
 #include <drivers/driver.h>
 using namespace myos::drivers;
- 
-Driver::Driver()
+
+Driver::Driver () {}
+
+Driver::~Driver () {}
+
+void
+Driver::Activate ()
 {
 }
 
-Driver::~Driver()
+int
+Driver::Reset ()
 {
-}
-        
-void Driver::Activate()
-{
+  return 0;
 }
 
-int Driver::Reset()
-{
-    return 0;
-}
-
-void Driver::Deactivate()
+void
+Driver::Deactivate ()
 {
 }
 
+DriverManager::DriverManager () { numDrivers = 0; }
 
-
-
-DriverManager::DriverManager()
+void
+DriverManager::AddDriver (Driver *drv)
 {
-    numDrivers = 0;
+  drivers[numDrivers] = drv;
+  numDrivers++;
 }
 
-void DriverManager::AddDriver(Driver* drv)
+void
+DriverManager::ActivateAll ()
 {
-    drivers[numDrivers] = drv;
-    numDrivers++;
+  for (int i = 0; i < numDrivers; i++)
+    drivers[i]->Activate ();
 }
-
-void DriverManager::ActivateAll()
-{
-    for(int i = 0; i < numDrivers; i++)
-        drivers[i]->Activate();
-}
-        

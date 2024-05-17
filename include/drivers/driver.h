@@ -1,39 +1,37 @@
- 
-#ifndef __MYOS__DRIVERS__DRIVER_H
-#define __MYOS__DRIVERS__DRIVER_H
+
+#ifndef INCLUDE_DRIVERS_DRIVER
+#define INCLUDE_DRIVERS_DRIVER
 
 namespace myos
 {
-    namespace drivers
-    {
+namespace drivers
+{
 
-        class Driver
-        {
-        public:
-            Driver();
-            ~Driver();
-            
-            virtual void Activate();
-            virtual int Reset();
-            virtual void Deactivate();
-        };
+class Driver
+{
+public:
+  Driver ();
+  ~Driver ();
 
-        class DriverManager
-        {
-        public:
-            Driver* drivers[265];
-            int numDrivers;
-            
-        public:
-            DriverManager();
-            void AddDriver(Driver*);
-            
-            void ActivateAll();
-            
-        };
-        
-    }
+  virtual void Activate ();
+  virtual int Reset ();
+  virtual void Deactivate ();
+};
+
+class DriverManager
+{
+public:
+  Driver *drivers[265];
+  int numDrivers;
+
+public:
+  DriverManager ();
+  void AddDriver (Driver *);
+
+  void ActivateAll ();
+};
+
 }
-    
-    
-#endif
+}
+
+#endif /* INCLUDE_DRIVERS_DRIVER */
