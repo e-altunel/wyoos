@@ -4,15 +4,11 @@
 #include <drivers/driver.h>
 #include <drivers/keyboard.h>
 #include <drivers/mouse.h>
-#include <drivers/vga.h>
 #include <gdt.h>
 #include <hardwarecommunication/interrupts.h>
-#include <hardwarecommunication/pci.h>
 #include <memorymanagement.h>
 #include <multitasking.h>
 #include <syscalls.h>
-
-#include <drivers/amd_am79c973.h>
 
 // #define GRAPHICSMODE
 
@@ -232,8 +228,6 @@ kernelMain (const void *multiboot_structure, uint32_t /*multiboot_magic*/)
   drvManager.ActivateAll ();
 
   printf ("Initializing Hardware, Stage 3\n");
-
-  amd_am79c973 *eth0 = (amd_am79c973 *)(drvManager.drivers[2]);
 
   interrupts.Activate ();
 
