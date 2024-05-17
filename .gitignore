@@ -27,3 +27,7 @@
 *.exe
 *.out
 *.app
+
+# ISO and bin files
+*.iso
+*.bin
