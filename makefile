@@ -1,4 +1,4 @@
-GCCPARAMS = -m32 -Iinclude -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore -Wno-write-strings -fno-stack-protector 
+GCCPARAMS = -m32 -Iinclude -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore -Wno-write-strings -fno-stack-protector
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
@@ -17,15 +17,6 @@ objects = obj/loader.o \
           obj/drivers/mouse.o \
           obj/drivers/vga.o \
           obj/drivers/ata.o \
-          obj/gui/widget.o \
-          obj/gui/window.o \
-          obj/gui/desktop.o \
-          obj/net/etherframe.o \
-          obj/net/arp.o \
-          obj/net/ipv4.o \
-          obj/net/icmp.o \
-          obj/net/udp.o \
-          obj/net/tcp.o \
           obj/kernel.o
 
 mykernel.iso: mykernel.bin
