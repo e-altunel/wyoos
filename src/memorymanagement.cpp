@@ -90,6 +90,10 @@ MemoryManager::free (void *ptr)
   }
 }
 
+#ifdef __INTELLISENSE__
+#  pragma diag_suppress 351
+#endif
+
 void *
 operator new (unsigned size)
 {
@@ -117,6 +121,10 @@ operator new[] (unsigned size, void *ptr)
 {
   return ptr;
 }
+
+#ifdef __INTELLISENSE__
+#  pragma diag_default 351
+#endif
 
 void
 operator delete (void *ptr)
